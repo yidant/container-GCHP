@@ -23,7 +23,7 @@ if [ -x "$(command -v nf-config)" ]; then
         export GC_F_LIB=$(nf-config --prefix)/lib
 fi
 
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/intel/bin:/opt/spack/bin
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/intel/bin:/opt/spack/bin:/opt/geos-chem/bin
 if [ -x "$(command -v spack)" ]; then
         export NETCDF_HOME=$(spack location -i netcdf-c)
         export GC_BIN=$NETCDF_HOME/bin 
@@ -37,6 +37,7 @@ fi
 
 source /opt/ibm/lsfsuite/lsf/conf/profile.lsf 
 
+export SPACK_ROOT=/opt/spack
 . /opt/spack/share/spack/setup-env.sh
 
 #LSF: add the cascadelake architecture to detect packages. 
