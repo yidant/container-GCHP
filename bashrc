@@ -10,6 +10,10 @@ export OMP_STACKSIZE=500m
 # OpenMPI config
 export OMPI_MCA_btl_vader_single_copy_mechanism=none
 
+# OpenMPI config oversubsribe
+export rmaps_base_oversubscribe=true
+export PRTE_MCA_rmaps_default_mapping_policy=:oversubscribe
+
 # GEOS-Chem environment variables
 if [ -x "$(command -v nc-config)" ]; then
         export GC_BIN=$(nc-config --prefix)/bin
@@ -41,7 +45,7 @@ export SPACK_ROOT=/opt/spack
 . /opt/spack/share/spack/setup-env.sh
 
 #LSF: add the cascadelake architecture to detect packages. 
-export MODULEPATH=$MODULEPATH:/usr/share/Modules/modulefiles:/opt/spack/share/spack/modules/linux-centos7-cascadelake
+export MODULEPATH=$MODULEPATH:/usr/share/Modules/modulefiles
 export gFTL_ROOT=/opt/gFTL/GFTL-1.2
 export ESMF_ROOT=/usr/local
 spack load gcc@10.2.0
