@@ -39,12 +39,10 @@ if [ -x "$(command -v spack)" ]; then
         export GC_F_LIB=$NETCDF_FORTRAN_HOME/lib
 fi
 
-source /opt/ibm/lsfsuite/lsf/conf/profile.lsf 
-
 export SPACK_ROOT=/opt/spack
 . /opt/spack/share/spack/setup-env.sh
 
-#LSF: add the cascadelake architecture to detect packages. 
+#LSF: detect packages. 
 export MODULEPATH=$MODULEPATH:/usr/share/Modules/modulefiles
 export gFTL_ROOT=/opt/gFTL/GFTL-1.2
 export ESMF_ROOT=/usr/local
@@ -52,7 +50,7 @@ spack load gcc@10.2.0
 spack load hdf5@1.14.2
 spack load netcdf-c
 spack load netcdf-fortran
-spack load openmpi@4.1.5
+spack load openmpi@3.0.5
 spack load esmf
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 
