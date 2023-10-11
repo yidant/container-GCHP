@@ -42,6 +42,8 @@ fi
 export SPACK_ROOT=/opt/spack
 . /opt/spack/share/spack/setup-env.sh
 
+git config --global --add safe.directory '*'
+
 #LSF: detect packages. 
 export MODULEPATH=$MODULEPATH:/usr/share/Modules/modulefiles
 export gFTL_ROOT=/opt/gFTL/GFTL-1.2
