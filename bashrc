@@ -49,7 +49,7 @@ export MODULEPATH=$MODULEPATH:/usr/share/Modules/modulefiles
 export gFTL_ROOT=/opt/gFTL/GFTL-1.2
 export ESMF_ROOT=/usr/local
 spack load gcc@10.2.0
-spack load hdf5@1.14.2
+spack load hdf5@1.14.3
 spack load cmake@3.22.1
 spack load netcdf-c
 spack load netcdf-fortran
