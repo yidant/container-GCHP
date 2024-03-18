@@ -53,7 +53,7 @@ spack load hdf5@1.14.3
 spack load cmake@3.26.3
 spack load netcdf-c@4.9.2
 spack load netcdf-fortran@4.5.3
-spack load openmpi@3.0.5
+spack load openmpi@4.1.1
 spack load esmf@8.4.2
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 
