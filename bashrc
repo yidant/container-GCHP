@@ -2,6 +2,7 @@
 export CC=gcc
 export CXX=g++
 export FC=gfortran
+export LC_ALL=C
 
 # OpenMP config
 export OMP_NUM_THREADS=$LSB_DJOB_NUMPROC
