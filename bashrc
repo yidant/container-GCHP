@@ -29,6 +29,21 @@ if [ -x "$(command -v nf-config)" ]; then
 fi
 
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/intel/bin:/opt/spack/bin:/opt/geos-chem/bin
+
+# Spack settings
+export SPACK_ROOT=/opt/spack
+. /opt/spack/share/spack/setup-env.sh
+
+# Load Spack packages
+spack load gcc@10.2.0
+spack load hdf5@1.14.3
+spack load cmake@3.26.3
+spack load netcdf-c@4.9.2
+spack load netcdf-fortran@4.5.3
+spack load openmpi@4.1.1
+spack load esmf@8.4.2
+
+# Spack environment variables
 if [ -x "$(command -v spack)" ]; then
         export NETCDF_HOME=$(spack location -i netcdf-c)
         export GC_BIN=$NETCDF_HOME/bin 
@@ -38,23 +53,16 @@ if [ -x "$(command -v spack)" ]; then
         export GC_F_BIN=$NETCDF_FORTRAN_HOME/bin 
         export GC_F_INCLUDE=$NETCDF_FORTRAN_HOME/include 
         export GC_F_LIB=$NETCDF_FORTRAN_HOME/lib
+        export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$(spack location -i netcdf-c)/lib
+        export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$(spack location -i netcdf-fortran)/lib
+        export PATH=$NETCDF_HOME/bin:$PATH
+        export CPATH=$NETCDF_HOME/include:$CPATH
+        export LIBRARY_PATH=$NETCDF_HOME/lib:$LIBRARY_PATH
 fi
-
-export SPACK_ROOT=/opt/spack
-. /opt/spack/share/spack/setup-env.sh
 
 git config --global --add safe.directory '*'
 
-#LSF: detect packages. 
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 export MODULEPATH=$MODULEPATH:/usr/share/Modules/modulefiles
 export gFTL_ROOT=/opt/gFTL/GFTL-1.2
 export ESMF_ROOT=/usr/local
-spack load gcc@10.2.0
-spack load hdf5@1.14.3
-spack load cmake@3.26.3
-spack load netcdf-c@4.9.2
-spack load netcdf-fortran@4.5.3
-spack load openmpi@4.1.1
-spack load esmf@8.4.2
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
-
