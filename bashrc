@@ -44,7 +44,7 @@ spack load openmpi@4.1.1
 spack load esmf@8.4.2
 
 # Spack environment variables
-if [ -x "$(command -v spack)" ]; then
+if [ -x "$(which spack)" ]; then
         export NETCDF_HOME=$(spack location -i netcdf-c)
         export GC_BIN=$NETCDF_HOME/bin 
         export GC_INCLUDE=$NETCDF_HOME/include
