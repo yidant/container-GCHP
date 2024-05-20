@@ -66,3 +66,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 export MODULEPATH=$MODULEPATH:/usr/share/Modules/modulefiles
 export gFTL_ROOT=/opt/gFTL/GFTL-1.2
 export ESMF_ROOT=/usr/local
+
+export CC=gcc
+export CXX=g++
+export FC=gfortran
